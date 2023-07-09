@@ -1,13 +1,13 @@
-abstract type AbstractBSM{T,N} <:ContinuousUnivariateDistribution end 
+abstract type AbstractBSM <:ContinuousUnivariateDistribution end 
 
 """
-    BSM{T<:Real} <: AbstractBSM{T,N} 
+    BSM{T<:Real} <: AbstractBSM
 
 A model object for the Bayesian sampler.
 
 # Parameters
 
-- `θs::Array{T,N}`: true subjective probability in which each column corresponds to events a ∩ b, a ∩ ¬b, ¬a ∩ b, ¬a ∩ ¬b 
+- `θs::AbstractArray{T,N}`: an array of true subjective probabilities. The array can be of any size and dimension. 
 - `β::T`: parameter for symmetrical beta prior 
 - `n::Int`: number of samples for marginal and conditional events 
 - `n′::Int`: number of samples for conjunctions and disjunctions where n′ ≤ n
@@ -31,10 +31,10 @@ p_agb = compute_conditional(model, sum(Θs[1]) / sum(Θs[:,1]))
 
 # References
 
-Zhu, J. Q., Sanborn, A. N., & Chater, N. (2020). The Bayesian sampler: Generic Bayesian inference causes incoherence in human probability judgments. Psychological review, 127(5), 719.
+Zhu, J. Q., Sanborn, A. N., & Chater, N. (2020). The Bayesian sampler: Generic Bayesian inference causes incoherence in human probability judgments. Psychological Review, 127(5), 719.
 """
-mutable struct BSM{T<:Real,N} <: AbstractBSM{T,N}
-    Θs::Array{T,N}
+mutable struct BSM{T<:Real,N} <: AbstractBSM
+    Θs::AbstractArray{T,N}
     β::T
     n::Int
     n′::Int 
