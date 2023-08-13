@@ -1,5 +1,3 @@
-
-
 using SafeTestsets
 @safetestset "BayesianSamplerModel.jl" begin
     using BayesianSamplerModel

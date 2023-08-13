@@ -4,12 +4,10 @@ authors = ["itsdfish and contributors"]
 version = "1.0.0-DEV"
 
 [deps]
-ComponentArrays = "b0b7db55-cfe3-40fc-9ded-d10e2dbeff66"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
 
 [compat]
-ComponentArrays = "0.13.0, 0.14"
 Distributions = "0.25.0"
 SafeTestsets = "0.0.1,0.1.0"
 julia = "1"

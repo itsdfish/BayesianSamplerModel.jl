@@ -1,8 +1,3 @@
-function round_val(p, r) 
-    v = 1 / r 
-    return round(p * v) / v
-end
-
 function _compute_prob(m::AbstractBSM, θ, β, n)
     return (n * θ + β) / (n + 2 * β)
 end
@@ -10,7 +5,7 @@ end
 """
     compute_marginal(m::AbstractBSM, θ)
 
-    Compute the mean marginal posterior probability judgment for the Bayesian Sampler Model. 
+Compute the mean marginal posterior probability judgment for the Bayesian Sampler Model. 
 
 # Arguments 
 
@@ -47,4 +42,9 @@ Compute the mean conditional posterior probability judgment for the Bayesian Sam
 """
 function compute_conditional(m::AbstractBSM, θ)
     return _compute_prob(m, θ, m.β, m.n)
+end
+
+function round_val(p, r) 
+    v = 1 / r 
+    return round(p * v) / v
 end
